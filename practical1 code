@@ -1,0 +1,47 @@
+import random
+
+def chatbot(user_input):
+    user_input = user_input.lower()
+    if "hello" in user_input or "hi" in user_input:
+        return "Hi there! How can I help?"
+    elif "problem" in user_input:
+        return "Please explain your problem."
+    elif "bye" in user_input:
+        return "Goodbye!"
+    else:
+        return "Sorry, I didn't understand."
+
+def fake_ml_prediction():
+    diseases = ["Cold", "Flu", "Allergy"]
+    prediction = random.choice(diseases)
+    print("\n[ML] Predicted Disease:", prediction)
+
+def perception_simulator():
+    alerts = ["normal", "motion detected", "sound detected"]
+    alert = random.choice(alerts)
+    print("\n[Surveillance] Status:", alert)
+    if alert != "normal":
+        print("[Alert] Suspicious activity!")
+    else:
+        print("[Info] All clear.")
+
+def main():
+    print("=== Simple AI Demo ===")
+
+    print("\n1. Chatbot")
+    while True:
+        msg = input("You: ")
+        if msg.lower() == "exit":
+            break
+        print("Bot:", chatbot(msg))
+
+    print("\n2. Disease Prediction")
+    fake_ml_prediction()
+
+    print("\n3. Perception Simulation")
+    perception_simulator()
+
+    print("\n✅ Done!")
+
+if __name__ == "__main__":
+    main()
